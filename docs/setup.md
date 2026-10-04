@@ -1,5 +1,14 @@
 # Setup and Configuration
 
+## Prerequisites
+
+- An AWS account and permissions to manage VPCs, Transit Gateways, route tables, security groups, and EC2 instances.
+- An AWS Region selected for all resources. A Transit Gateway is regional, so the VPCs and attachments must be in the same Region for this setup.
+- Three non-overlapping VPC CIDR blocks matching the ranges below.
+- Review AWS pricing before creating resources; Transit Gateway attachments and running EC2 instances can incur charges.
+
+This guide records the configuration and connectivity test for the project. It does not provision AWS resources automatically.
+
 ## 1. Create VPCs
 
 Three VPCs were configured:
@@ -40,6 +49,8 @@ Each VPC route table contains routes to the other VPC CIDR blocks through the Tr
 
 ICMP traffic was permitted between the three VPC CIDR ranges for connectivity testing.
 
+For production, avoid allowing unrestricted ICMP between entire VPC CIDR ranges unless that is explicitly required. Limit rules to the necessary sources and protocols, and remove temporary test rules when testing is complete.
+
 ## 7. Deploy EC2 Instances
 
 One EC2 instance was deployed in each environment:
@@ -58,19 +69,19 @@ All tested connections returned:
 
 ## 9. Contribute Changes
 
-Create a feature branch before making changes:
+Create a feature branch with a name relevant to your change (replace the example name as needed):
 
 ```bash
-git checkout -b feature/rohith-aws
+git checkout -b feature/docs-guide
 ```
 
-Review and commit the changes, then push the branch:
+Review your changes and stage only the intended files before committing and pushing:
 
 ```bash
 git status
-git add .
-git commit -m "Add AWS configuration screenshots"
-git push -u origin feature/rohith-aws
+git add docs/setup.md
+git commit -m "Improve setup guide"
+git push -u origin feature/docs-guide
 ```
 
-Open a pull request from `feature/rohith-aws` into `main`. Do not push directly to `main`.
+Open a pull request from your feature branch into `main`. Do not push directly to `main`.
