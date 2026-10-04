@@ -73,3 +73,20 @@ The Transit Gateway acts as a central networking hub, allowing the three VPCs to
                  ▼                    ▼                    ▼
              EC2-DEV              EC2-STAGE             EC2-PROD
              10.0.1.77             20.0.1.187             30.0.1.235
+```
+
+The instance addresses shown above are deployment-specific private IPs; actual addresses can differ.
+
+## 🚀 Getting Started
+
+This repository documents an AWS Transit Gateway deployment and its connectivity tests. Follow the [setup guide](docs/setup.md) for the recorded configuration steps and verification notes. AWS resources are not provisioned automatically by this repository.
+
+## 📷 Configuration Evidence
+
+The screenshots below document the VPCs, Transit Gateway attachments, routing, instances, and connectivity test:
+
+- [VPC configuration](screenshots/vpc.png)
+- [Transit Gateway attachments](screenshots/attachments.png)
+- [Transit Gateway route table](screenshots/route-table.png)
+- [EC2 instances](screenshots/ec2-instances.png)
+- [Connectivity test](screenshots/connectivity-test.png)
